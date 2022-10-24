@@ -1,0 +1,79 @@
+<form [formGroup]="login_form" (ngSubmit)="autheticated()">
+    <div class="form-group">
+        <label>Email address</label>
+        <input type="email" name="email" class="form-control" formControlName="email">
+        <small class="form-text text-muted" *ngIf="form.email.errors && loginSubmitted">
+            <ng-container [ngSwitch]="form.email.value">
+                <ng-container *ngSwitchCase="''">El email es requerido</ng-container>
+                <ng-container *ngSwitchDefault>El email es invalido</ng-container>
+            </ng-container>
+        </small>
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" class="form-control" formControlName="password">
+        <small class="form-text text-muted" *ngIf="form.password.errors && loginSubmitted">
+            <ng-container [ngSwitch]="form.password.value">
+                <ng-container *ngSwitchCase="''">El password es requerido</ng-container>
+                <ng-container *ngSwitchDefault>El password debe tener maximo 10 caracteres</ng-container>
+            </ng-container>
+        </small>
+    </div>
+    <!-- Fields person name -->
+  <!--   <div class="form-group" formGroupName="person">
+        <label>Name</label>
+        <input type="text" name="name" class="form-control" formControlName="name">
+        <small class="form-text text-muted" *ngIf="fp.name.errors && loginSubmitted">
+            <ng-container [ngSwitch]="fp.name.value">
+                <ng-container *ngSwitchCase="''">El name es requerido</ng-container>
+                <ng-container *ngSwitchDefault>El name debe tener maximo 35 caracteres</ng-container>
+            </ng-container>
+        </small>
+        <hr />
+        <label>LastName</label>
+        <input type="text" name="lastname" class="form-control" formControlName="lastname">
+        <small class="form-text text-muted" *ngIf="fp.lastname.errors && loginSubmitted">
+            <ng-container [ngSwitch]="fp.lastname.value">
+                <ng-container *ngSwitchCase="''">El lastname es requerido</ng-container>
+                <ng-container *ngSwitchDefault>El lastname es invalido</ng-container>
+            </ng-container>
+        </small>
+    </div> -->
+    <!-- Fields intereses name -->
+   <!--  <div class="form-group" formArrayName="intereses">
+        <button type="button" class="btn btn-info btn-sm" (click)="addInteres()">Add</button>
+        <ng-container *ngFor="let interes of intereses.controls; let i=index">
+            <div class="form-input">
+                <label>Inters*:<span (click)="deteleIntereses(i)">X</span></label>
+                <input type="text" class="form-control" placeholder="interes" [formControlName]="i">
+                <small class="form-text text-muted" *ngIf="interes.errors && loginSubmitted">
+                    <ng-container [ngSwitch]="interes.value">
+                        <ng-container *ngSwitchCase="''">El interes es requerido</ng-container>
+                        <ng-container *ngSwitchDefault>El intereses debe tener almeno 10 caracteres</ng-container>
+                    </ng-container>
+                </small>
+            </div>
+        </ng-container>
+    </div>
+ -->
+
+    <button type="submit" class="btn btn-primary">INICIAR SESIÓN</button>
+</form>
+
+<!-- <form>
+    <div class="form-group">
+        <label>Email address</label>
+        <input type="email" name="email" class="form-control" [(ngModel)]="loginForm.email.val" #email="ngModel">
+        <small id="emailHelp" class="form-text text-muted" *ngIf="!loginForm.email.isValid() && email.touched">
+            {{loginForm.email.error}}
+        </small>
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" class="form-control" [(ngModel)]="loginForm.password.val" #password="ngModel">
+        <small id="passHelp" class="form-text text-muted" *ngIf="!loginForm.password.isValid() && password.touched">
+            {{loginForm.password.error}}
+        </small>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!isValidForm" (click)="autheticated()">INICIAR SESIÓN</button>
+</form> -->

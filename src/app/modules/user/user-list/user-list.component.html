@@ -1,0 +1,70 @@
+<div class="row">
+    <div class="col-lg-12 bg-light mb-3">
+        <app-title-h1 [text]="title" [price_pesos]="price_pesos" [data]="object"></app-title-h1>
+        <button class="btn btn-secondary btn-sm" (click)="add_amount()">Agregar pesos</button>
+        <h1>Pipes</h1>
+        <p>JSON: {{object2 | json}}</p>
+        <p>texto: {{string_var | uppercase}}</p>
+        <p>Date: {{date_var | date}}</p>
+        <p>Date medium: {{date_var | date:'medium'}}</p>
+        <p>Date shortTime: {{date_var | date:'shortTime'}}</p>
+        <p>Date mm:ss: {{date_var | date:'mm:ss'}}</p>
+        <p>Date fullTime: {{date_var | date:'fullTime'}}</p>
+        <p>Currency: {{current_var | currency }}</p>
+        <p>Decimal: {{decimal_var | number:'1.2-4' }}</p>
+        <p>Porcentaje: {{decimal_var | percent}}</p>
+    </div>
+    <ng-container *ngIf="users; else user_loaders;">
+        <app-card-user [data]="user" *ngFor="let user of users;" class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+        </app-card-user>
+    </ng-container>
+    <div class="col-lg-12">
+        <button class="btn btn-primary mt-3 ml-3" (click)="new_user()">
+            Agregra usuario
+        </button>
+    </div>
+
+
+    <!--  How use index -->
+    <!--  <div class="col-lg-12" *ngFor="let t of tasks; index as i">
+        <h2>{{i+1}} - {{t.title}}</h2>
+    </div> -->
+
+    <!-- <div class="col-lg-12" *ngFor="let n of numeros; index as i; first as primero; last as ultimo">
+        <h2>{{i+1}} - {{n}} - {{primero ?'primero':'vacio'}}</h2>
+    </div> -->
+
+    <!--
+        Init loader of card user
+    -->
+    <ng-template #user_loaders>
+        <app-card-loadres class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3" [bars]="4" [image_size]="100" [bar_height]="7"
+            *ngFor="let i of [0,1,2,3]"></app-card-loadres>
+    </ng-template>
+    <!--
+        Init loader of card user
+    -->
+
+   <!--  <div class="col-lg-12">
+        <br />
+        <br />
+        <app-default-user></app-default-user>
+    </div> -->
+
+   <!--  <div class="col-12">
+        <br/>
+        <app-default-user></app-default-user>
+    </div> -->
+</div>
+
+
+
+
+
+<!-- <div class="container-fluid px-0">
+    <div class="row bg-dark h-100">
+        <div class="col-lg-12 px-0">
+            <app-carousel [items]="carousel_data"></app-carousel>
+        </div>
+    </div>
+</div> -->

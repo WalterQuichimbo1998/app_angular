@@ -1,0 +1,17 @@
+.tsc-skeleton-content{
+    min-height: calc(100vh - 80px - 60px);
+    background: rgba(0,0,0,0.15);
+}
+
+.dsc-loader{
+    position:fixed;
+    top: 0;
+    left: 0;
+    background: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+}

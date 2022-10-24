@@ -1,0 +1,40 @@
+<!-- <button class="btn btn-danger mr-2" (click)="showError()">Mostrar error</button>
+<button class="btn btn-success mr-2" (click)="showSuccess()">Mostrar success</button>
+ <div [ngStyle]="{background:'red', borderRadius:'4px', 'width.px':200}">
+<div class="dsc-error" [ngStyle]="style" *ngIf="isShow">
+    {{msg}}
+</div> -->
+
+<div class="row">
+    <div class="col-12">
+        <h2 class="text-primary border-bottom pb-1">Directiva [ngCLass]</h2>
+    </div>
+    <div class="col-12">
+        <div class="d-flex flex-wrap justify-content-center justify-content-md-start">
+            <ng-container *ngFor="let card of cards;">
+                <div [ngClass]="{
+                    'dsc-card':true,
+                    'dsc-card-primary':card.isPrimary,
+                    'dsc-card-secondary':!card.isPrimary,
+                    'dsc-card-disabled':card.isDisabled
+                }">
+                    <div class="dsc-card__title">
+                        <h2>Tarjeta</h2>
+                    </div>
+                    <div class="dsc-card__body">
+                        dgtd lkjhgy lkdjh dkjldjdh kldfhdhj dfhdkf hdlkh jdklh djh
+                        dfhdf jlkhdkfl hkdfjhkdfjhkldhdhdfh d dfh dfhdfhg jd dhfdd
+                        fdhdfhlklsdfgjkdhglkdsfgkldfglk
+                    </div>
+                    <div class="dsc-card__actions">
+                        <button class="btn btn-primary mr-1" (click)="changeStatus(card);">Cambiar color</button>
+                        <button class="btn btn-dark" (click)="disabledCard(card);">
+                            {{card.isDisabled ? 'Habilitar':'Deshabilitar'}}
+                        </button>
+                    </div>
+                </div>
+            </ng-container>
+
+        </div>
+    </div>
+</div>
