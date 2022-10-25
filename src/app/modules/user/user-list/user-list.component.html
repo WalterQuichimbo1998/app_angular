@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-12 bg-light mb-3">
+    <!--  <div class="col-lg-12 bg-light mb-3">
         <app-title-h1 [text]="title" [price_pesos]="price_pesos" [data]="object"></app-title-h1>
         <button class="btn btn-secondary btn-sm" (click)="add_amount()">Agregar pesos</button>
         <h1>Pipes</h1>
@@ -13,8 +13,9 @@
         <p>Currency: {{current_var | currency }}</p>
         <p>Decimal: {{decimal_var | number:'1.2-4' }}</p>
         <p>Porcentaje: {{decimal_var | percent}}</p>
-    </div>
-    <ng-container *ngIf="users; else user_loaders;">
+    </div> -->
+
+    <!--  <ng-container *ngIf="users; else user_loaders;">
         <app-card-user [data]="user" *ngFor="let user of users;" class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
         </app-card-user>
     </ng-container>
@@ -22,7 +23,7 @@
         <button class="btn btn-primary mt-3 ml-3" (click)="new_user()">
             Agregra usuario
         </button>
-    </div>
+    </div> -->
 
 
     <!--  How use index -->
@@ -37,28 +38,20 @@
     <!--
         Init loader of card user
     -->
-    <ng-template #user_loaders>
+    <!--   <ng-template #user_loaders>
         <app-card-loadres class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3" [bars]="4" [image_size]="100" [bar_height]="7"
             *ngFor="let i of [0,1,2,3]"></app-card-loadres>
-    </ng-template>
+    </ng-template> -->
     <!--
         Init loader of card user
     -->
 
-   <!--  <div class="col-lg-12">
+    <!--  <div class="col-lg-12">
         <br />
         <br />
         <app-default-user></app-default-user>
-    </div> -->
-
-   <!--  <div class="col-12">
-        <br/>
-        <app-default-user></app-default-user>
-    </div> -->
+    </div>  -->
 </div>
-
-
-
 
 
 <!-- <div class="container-fluid px-0">
@@ -68,3 +61,75 @@
         </div>
     </div>
 </div> -->
+<br />
+<br />
+<app-solid-button [title]="'Ver detalle'" [type]="$btnTypes.success" [url]="'/panel/user/detail/1'"
+    (action)="actions($event)">
+</app-solid-button>
+
+<app-title-h1 [text]="'Nuevo usuarios'" #mainTitle>
+</app-title-h1>
+<div>
+    asdadad bhladk shn hisa hñiosdh ois jñ gasgjijñj
+</div>
+
+<!-- <app-solid-button 
+[title]="'Guardar'" 
+[type]="$btnTypes.primary" 
+(action)="mainTitle.text='actulizar usuario';
+mainButton2.title='actualizar';
+mainButton2.type=$btnTypes.success" #mainButton2></app-solid-button> -->
+
+
+
+<!-- <app-solid-button 
+[title]="'continuar'" 
+[type]="$btnTypes.primary" 
+(action)="continue(true)" #mainButton></app-solid-button> -->
+
+<!-- <div #container>Hola</div>
+<br/>
+<app-full-table #t [data]="data">  
+    <tr recordsHead>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Edad</th>
+        <th>Posición</th>
+    </tr>
+    <tr recordsBody *ngFor="let u of t.data">
+        <td>{{u.name}}</td>
+        <td>{{u.lastname}}</td>
+        <td>{{u.edad}}</td>
+        <td>{{u.position}}</td>
+    </tr>
+</app-full-table>  -->
+
+
+<!-- <div #container>Hola</div>
+<br/>
+<app-full-table #t [service]="service_table">  
+    <tr recordsHead>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Edad</th>
+        <th>Posición</th>
+    </tr>
+    <tr recordsBody *ngFor="let u of service_table.getCurrentItems">
+        <td [routerLink]="'/panel/user/detail/'+u.id">{{u.name}}</td>
+        <td>{{u.lastname}}</td>
+        <td>{{u.age}}</td>
+        <td>{{u.position}}</td>
+    </tr>
+</app-full-table> 
+
+<app-solid-button 
+[title]="'Guardar'" 
+[type]="$btnTypes.primary" 
+(action)="t.tableService.getData()"></app-solid-button> -->
+<app-row>
+    <ng-container *ngFor="let u of service_table.getCurrentItems">
+        <app-col [sizes]="{xs:12, sm:6, md:4, lg:3, xl:3}" [classes]="'test'">
+            <app-card-user [data]="u"></app-card-user>
+        </app-col>
+    </ng-container>
+</app-row>

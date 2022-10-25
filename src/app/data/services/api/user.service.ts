@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { IApiUser } from '@data/interfaces';
 import { ApiClass } from '@data/schema/api_class.class';
 import { ICardUser } from '@shared/components/cards/card-user/icard-user.metadata';
 import { Observable, of } from 'rxjs';
@@ -31,18 +32,13 @@ export class UserService extends ApiClass {
   getApiUser(): Observable<{
     error: boolean;
     msg: string;
-    data: ICardUser[]
+    data: IApiUser[]
   }> {
-    const response = { error: false, msg: '', data: [] as ICardUser[] };
-    return this.http.get<ICardUser[]>(this.url + 'users')
+    const response = { error: false, msg: '', data: [] as IApiUser[] };
+    return this.http.get<IApiUser[]>(this.url + 'users')
       .pipe(
         map(r => {
           response.data = r;
-          r.map(i => {
-            if (i.gender === '' || i.gender === null) {
-              i.gender = 'No encontrado'
-            }
-          })
           return response;
         }),
         catchError(() => of(response))

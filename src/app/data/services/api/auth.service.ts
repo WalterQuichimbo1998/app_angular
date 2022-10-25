@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { error_const } from '@data/constants';
 import { api_routes, internal_routes } from '@data/constants/routes';
+import { PermissionsEnum } from '@data/enum';
 import { IApiUserAuth } from '@data/interfaces';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -24,6 +25,12 @@ export class AuthService {
     return this.currentUserSubject.value;
   }
 
+  hasAccessToModule(p: PermissionsEnum) {
+    //return this.currentUserValue && this.currentUserValue.permissions[p] === 1;
+    return this.currentUserValue && this.currentUserValue.permissions[p] === 1;
+  }
+
+
   login(data: {
     email: string;
     password: string;
@@ -32,22 +39,26 @@ export class AuthService {
     msg: string;
     data: any
   }> {
-    const response = { error: true, msg: error_const.login.error, data: {}};
+    const response = { error: true, msg: error_const.login.error, data: {} };
 
     return this.http.post<any>(api_routes.auth.login, data)
       .pipe(
-        map(({token}) => {
+        map(({ token }) => {
           console.log(token);
           // store user details and jwt token in local storage to keep user logged in between page refreshes
           response.error = false
           response.msg = 'Login correctamente'
           response.data = {
-            name:'walter',
-            age:24,
-            token:token,
-            avatar:'https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png'
+            name: 'walter',
+            age: 24,
+            token: token,
+            avatar: 'https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png',
+            permissions:{
+              table_user:1,
+              detail_user:1
+            }
           }
-          
+
           localStorage.setItem('currentUser', JSON.stringify(response.data));
           this.currentUserSubject.next(response.data);
           console.log(response.data)

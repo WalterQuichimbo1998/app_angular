@@ -10,3 +10,4 @@ export * from './forms/ifield.metadata'
 
 //api
 export * from './api/iapi-auth-user.metadata'
+export * from './api/iapi-user.metadata'

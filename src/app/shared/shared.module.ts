@@ -7,6 +7,8 @@ import * as fromComponents from './components';
 import { RouterModule } from '@angular/router';
 
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { RowComponent } from './components/columns/row/row.component';
+import { ColComponent } from './components/columns/col/col.component';
 
 @NgModule({
   imports: [

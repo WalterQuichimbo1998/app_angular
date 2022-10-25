@@ -7,11 +7,13 @@ export const left_nav_menus: ILeftNavMenu[] = [
         links: [
             {
                 icon: faUser,
-                name: 'Perfil'
+                name: 'Lista de usuarios',
+                link:'/panel/user'
             },
             {
                 icon: faCog,
-                name: 'Mi cuenta'
+                name: 'Detalle de usuario',
+                link:'/panel/user/detail/1'
             },
             {
                 icon: faClipboard,

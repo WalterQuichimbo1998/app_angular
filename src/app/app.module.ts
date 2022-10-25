@@ -13,6 +13,9 @@ import { HeaderComponent } from './layout/header/header.component';
 import { LeftNavComponent } from './layout/left-nav/left-nav.component';
 import { LeftNavMenuComponent } from './layout/left-nav/left-nav-menu/left-nav-menu.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { Page404Component } from './modules/server/page404/page404.component';
+import { Page403Component } from './modules/server/page403/page403.component';
+import { Page401Component } from './modules/server/page401/page401.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HeaderComponent,
     LeftNavComponent,
     LeftNavMenuComponent,
+    Page404Component,
+    Page403Component,
+    Page401Component,
   ],
   imports: [
     BrowserModule,

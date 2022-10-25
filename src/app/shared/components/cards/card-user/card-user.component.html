@@ -1,4 +1,4 @@
-<div class="card shadow tsc-card w-100 h-100" *ngIf="data" routerLink="/panel/user/detail/{{data.id}}">
+<div class="card shadow tsc-card" *ngIf="data" routerLink="/panel/user/detail/{{data.id}}">
     <div class="card-header text-center text-uppercase tsc-card-image">
         <h5 class="p-0 m-0">{{data.name}}</h5>
     </div>
@@ -6,15 +6,6 @@
 
         <img src="{{data.avatar}}" alt="" height="70px">
         <h5>Edad: {{data.age}} años</h5>
-        <p>Género:
-            <ng-container [ngSwitch]="data.gender">
-                <span *ngSwitchCase="'F'">Femenino</span>
-                <span *ngSwitchCase="'M'">Masculino</span>
-                <span *ngSwitchDefault>S/N</span>
-            </ng-container>
-        </p>
-        <p *ngIf="data.work" class="p-0 m-0">{{data.work}}</p>
-
     </div>
     <div class="card-footer text-center">
         <p class="p-0 m-0">{{data.description}}</p>
